@@ -1,0 +1,26 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Dni</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido1</th>
+            <th scope="col">Apellido2</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let autor of autors">
+            <td>{{ autor.dni }}</td>
+            <td>{{ autor.nombre}}</td>
+            <td>{{ autor.apellido1 }}</td>
+            <td>{{ autor.apellido2 }}</td>
+            <td>{{ autor.telefono }}</td>
+            <td>{{ autor.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
