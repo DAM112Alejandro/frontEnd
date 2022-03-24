@@ -1,26 +1,18 @@
-<div class="card my-5">
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Dni</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido1</th>
-            <th scope="col">Apellido2</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let autor of autors">
-            <td>{{ autor.dni }}</td>
-            <td>{{ autor.nombre}}</td>
-            <td>{{ autor.apellido1 }}</td>
-            <td>{{ autor.apellido2 }}</td>
-            <td>{{ autor.telefono }}</td>
-            <td>{{ autor.email }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<table class="table">
+  <tr>
+      <th scope="col">DNI</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Segundo Apellido</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Email</th>
+    </tr>
+  <tr *ngFor = "let autor of autors">
+      <td scope="row">{{autor.dni}}</td>
+      <td scope="row">{{autor.nombre}}</td>
+      <td scope="row">{{autor.apellido1}}</td>
+      <td scope="row">{{autor.apellido2}}</td>
+      <td scope="row">{{autor.telefono}}</td>
+      <td scope="row">{{autor.email}}</td>
+  </tr>
+</table>

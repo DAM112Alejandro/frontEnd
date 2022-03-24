@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AutorServiceService } from '../autor-service.service';
+import { AutorService } from '../autor-service.service';
 import { Autor } from '../model/autor';
-
 
 @Component({
   selector: 'app-autor-list',
@@ -11,13 +10,13 @@ import { Autor } from '../model/autor';
 export class AutorListComponent implements OnInit {
 
   autors: Autor[];
+  constructor(private autorService: AutorService) {
+   }
 
-  constructor(private autorServiceService: AutorServiceService) {
-  }
-
-  ngOnInit() {
-    this.autorServiceService.findAll().subscribe(data => {
+  ngOnInit(): void {
+    this.autorService.findAll().subscribe(data => {
       this.autors = data;
     });
   }
+
 }

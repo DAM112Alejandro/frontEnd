@@ -1,27 +1,16 @@
-<div class="card my-5">
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Titulo</th>
-            <th scope="col">Edicion</th>
-            <th scope="col">ID_Autor</th>
-            <th scope="col">ID_Categoria</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let libro of libros">
-            <td>{{ libro.id}}</td>
-            <td>{{ libro.titulo }}</td>
-            <td>{{ libro.edicion }}</td>
-            <td>{{ libro.id_autor }}</td>
-            <td>{{ libro.id_categoria }}</td>
-            <td>
-              
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<table class="table">
+   <tr>
+       <th scope="col">ID</th>
+       <th scope="col">Titulo</th>
+       <th scope="col">Edicion</th>
+       <th scope="col">Autor</th>
+       <th scope="col">Categoria</th>
+     </tr>
+   <tr *ngFor = "let libro of libros">
+       <td scope="row">{{libro.id}}</td>
+       <td scope="row">{{libro.titulo}}</td>
+       <td scope="row">{{libro.edicion}}</td>
+       <td scope="row">{{libro.id_autor}}</td>
+       <td scope="row">{{libro.id_categoria}}</td>
+   </tr>
+</table>

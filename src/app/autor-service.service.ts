@@ -1,26 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
 import { Autor } from './model/autor';
 
 
 @Injectable({
   providedIn: 'root'
-  })
-export class AutorServiceService {
-
-
-  private autorUrl: string;
+})
+export class AutorService {
+  private autorsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.autorUrl = 'http://localhost:8080/autor';
-  }
+    this.autorsUrl = 'http://localhost:8080';
+   }
 
-  public findAll(): Observable<Autor[]> {
-    return this.http.get<Autor[]>(`${this.autorUrl}/all`);
-  }
-
-  public save(autor: Autor) {
-    return this.http.post<Autor>(this.autorUrl, autor);
-  }
+   public findAll(): Observable<Autor[]>{
+     return this.http.get<Autor[]>(`${this.autorsUrl}/autor/all`);
+   }
+   public findById(dni: string): Observable<Autor>{
+      return this.http.get<Autor>(`${this.autorsUrl}/autor/getById/${dni}`)
+   }
+   public updateAutor(autor: Autor): Observable<Autor>{
+     return this.http.put<Autor>(`${this.autorsUrl}/autor/update`, autor)
+   }
+   public addAutor(autor: Autor): Observable<Autor>{
+     return this.http.post<Autor>(`${this.autorsUrl}/autor/add`, autor)
+   }
+   public deleteAutor(dni: string): Observable<Autor>{
+     return this.http.delete<Autor>(`${this.autorsUrl}/autor/delete/${dni}`)
+   }
 }

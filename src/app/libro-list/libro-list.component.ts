@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LibroServiceService } from '../libro-service.service';
-
+import { LibroService } from '../libro-service';
 import { Libro } from '../model/libro';
+
 
 @Component({
   selector: 'app-libro-list',
@@ -11,13 +11,12 @@ import { Libro } from '../model/libro';
 export class LibroListComponent implements OnInit {
 
   libros: Libro[];
+  constructor(private libroService: LibroService) { }
 
-  constructor(private libroServiceService: LibroServiceService) {
-  }
-
-  ngOnInit() {
-    this.libroServiceService.findAll().subscribe(data => {
+  ngOnInit(): void {
+    this.libroService.findAll().subscribe(data => {
       this.libros = data;
     });
   }
+
 }
